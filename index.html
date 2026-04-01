@@ -27,8 +27,6 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-page); color: var(--text1); font-size: 13px; }
-
-  /* ── Topbar ── */
   .topbar { background: var(--bg-panel); border-bottom: 2px solid var(--green); padding: 0 20px; height: 46px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 200; }
   .topbar-title { font-size: 14px; font-weight: 700; color: var(--text1); display: flex; align-items: center; gap: 8px; }
   .topbar-title .dot { color: var(--green); font-size: 16px; }
@@ -38,8 +36,6 @@
   .sync-status { font-size: 11px; color: var(--text4); }
   .sync-status.ok  { color: var(--green-dark); }
   .sync-status.err { color: var(--red); }
-
-  /* ── Date bar ── */
   .date-bar { background: var(--bg-panel); border-bottom: 1px solid var(--border); padding: 8px 20px; display: flex; align-items: center; gap: 12px; }
   .date-label { font-size: 12px; font-weight: 600; color: var(--text2); }
   .date-badge { font-size: 13px; font-weight: 700; color: var(--navy); background: #e8f0fe; border: 1px solid #b3c6f0; padding: 3px 12px; border-radius: 3px; }
@@ -47,8 +43,6 @@
   .date-bar-right { margin-left: auto; }
   .reset-btn { padding: 4px 14px; border-radius: 3px; border: 1px solid var(--red-border); background: var(--red-bg); color: var(--red); font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
   .reset-btn:hover { background: var(--red); color: #fff; border-color: var(--red); }
-
-  /* ── Modal ── */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 999; align-items: center; justify-content: center; }
   .modal-overlay.show { display: flex; }
   .modal { background: #fff; border-radius: 8px; padding: 24px 28px; min-width: 320px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
@@ -64,84 +58,52 @@
   .modal-cancel:hover { background: var(--bg-page); }
   .modal-confirm { padding: 6px 16px; border: none; border-radius: 4px; background: var(--red); color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
   .modal-confirm:hover { background: #b91c1c; }
-
-  /* ── Page ── */
   .page { padding: 16px 20px; overflow-x: auto; }
   .section-title { font-size: 13px; font-weight: 700; color: var(--text1); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
   .section-title .cnt { color: var(--text3); font-weight: 400; font-size: 12px; }
   .panel { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 14px; overflow: hidden; }
-
-  /* ── Shared board grid ── */
   .board-wrap { min-width: 720px; }
   .board-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-
-  /* Manager row */
   .mgr-cell { border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border); background: #f9fafb; padding: 3px 8px; display: flex; align-items: center; justify-content: center; }
   .mgr-cell:last-child { border-right: none; }
   .mgr-input { width: 100%; border: none; background: transparent; font-size: 11px; font-weight: 600; text-align: center; padding: 2px; color: var(--text3); outline: none; font-family: inherit; }
   .mgr-input:hover { color: var(--text1); }
   .mgr-input:focus { background: #fff; color: var(--text1); box-shadow: 0 0 0 1px var(--green); border-radius: 2px; }
-
-  /* Booth name row */
   .name-cell { border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid var(--border); background: var(--navy); padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-align: center; }
   .name-cell:last-child { border-right: none; }
   .booth-title { font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
   .booth-prize { font-size: 11px; color: rgba(255,255,255,0.4); }
-
-  /* ── Booth entry row ── */
   .entry-cell { border-right: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 4px; min-height: 100px; background: #fff; }
   .entry-cell:nth-child(even) { background: #fafafa; }
   .entry-cell:last-child { border-right: none; }
-
-  /* ── Manual entry row ── */
   .manual-cell { border-right: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 4px; min-height: 70px; background: #fff; }
   .manual-cell:nth-child(even) { background: #fafafa; }
   .manual-cell:last-child { border-right: none; }
-
-  /* Manual row section label row */
   .manual-label-row { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); background: #f0f7e6; }
   .manual-label-cell { border-right: 1px solid var(--border-light); padding: 5px 10px; font-size: 11px; font-weight: 700; color: var(--green-dark); display: flex; align-items: center; }
   .manual-label-cell:last-child { border-right: none; }
-
-  /* ── Shared input row ── */
   .input-row { display: flex; align-items: stretch; border: 1.5px solid #adb5bd; border-radius: 3px; overflow: hidden; margin-top: 4px; }
-  .inp-team, .inp-rate, .inp-amt {
-    flex: 1; min-width: 0; border: none; border-right: 1.5px solid #adb5bd;
-    background: #fff; font-size: 12px; font-weight: 700;
-    padding: 6px 4px; text-align: center; color: var(--text1);
-    font-family: inherit; outline: none;
-  }
+  .inp-team, .inp-rate, .inp-amt { flex: 1; min-width: 0; border: none; border-right: 1.5px solid #adb5bd; background: #fff; font-size: 12px; font-weight: 700; padding: 6px 4px; text-align: center; color: var(--text1); font-family: inherit; outline: none; }
   .inp-team::placeholder, .inp-rate::placeholder, .inp-amt::placeholder { color: var(--text4); font-weight: 400; font-size: 10px; }
   .inp-team:focus, .inp-rate:focus, .inp-amt:focus { background: #f8fff0; }
   .inp-unit { padding: 6px 5px; background: #f9fafb; border-right: 1.5px solid #adb5bd; font-size: 11px; color: var(--text3); display: flex; align-items: center; flex-shrink: 0; }
-
-  /* Green button for booth entry */
   .submit-btn-green { flex: 1.5; min-width: 0; border: none; background: var(--green-mid); color: #fff; font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit; letter-spacing: 0.5px; transition: background 0.15s; }
   .submit-btn-green:hover { background: var(--green-dark); }
-
-  /* Navy button for manual entry */
   .submit-btn-navy { flex: 1.5; min-width: 0; border: none; background: var(--navy); color: #fff; font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit; letter-spacing: 0.5px; transition: background 0.15s; }
   .submit-btn-navy:hover { background: var(--navy-hover); }
-
-  /* eitem (booth) */
   .eitem-header { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 2px 6px 4px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
   .eitem-header span { font-size: 10px; color: var(--text4); font-weight: 600; text-align: center; }
   .eitem-header span:first-child { text-align: left; }
   .eitem-header span:last-child  { text-align: right; }
   .eitem { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 4px 6px; border-bottom: 1px solid var(--border-light); align-items: center; }
   .eitem:last-of-type { border-bottom: none; }
-  .eitem.dup { background: var(--red-bg); }
   .eitem-team   { font-size: 12px; font-weight: 700; color: var(--text1); }
   .eitem-rate   { font-size: 12px; font-weight: 700; color: var(--text2); text-align: center; }
   .eitem-result { font-size: 11px; color: var(--text3); text-align: center; }
-  .eitem.dup .eitem-team   { color: var(--red); }
-  .eitem.dup .eitem-result { color: var(--red); font-weight: 600; }
   .eitem-asset-wrap { display: flex; align-items: center; justify-content: flex-end; gap: 4px; }
   .eitem-asset { font-size: 12px; color: var(--text1); }
   .eitem-del { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; background: #fff; color: var(--text4); cursor: pointer; font-size: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .eitem-del:hover { border-color: var(--red); color: var(--red); }
-
-  /* meitem (manual) */
   .meitem { display: grid; grid-template-columns: 1fr 1fr; padding: 4px 6px; border-bottom: 1px solid var(--border-light); align-items: center; }
   .meitem:last-of-type { border-bottom: none; }
   .meitem-team  { font-size: 12px; font-weight: 700; color: var(--text1); }
@@ -149,8 +111,6 @@
   .meitem-amt   { font-size: 12px; color: var(--text1); }
   .meitem-del   { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; background: #fff; color: var(--text4); cursor: pointer; font-size: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .meitem-del:hover { border-color: var(--red); color: var(--red); }
-
-  /* ── Bottom ── */
   .bottom-wrap { min-width: 720px; }
   .bottom-grid { display: grid; grid-template-columns: 7fr 3fr; background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
   .toolbar { display: flex; align-items: center; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--border); background: #f9fafb; flex-wrap: wrap; gap: 6px; }
@@ -217,7 +177,6 @@
 </div>
 
 <div class="page">
-
   <div class="section-title">부스 현황</div>
   <div class="panel board-wrap">
     <div class="board-grid" id="row-mgr"></div>
@@ -361,7 +320,6 @@ window.checkPwAndReset=function(){
 document.getElementById("modal-pw").addEventListener("keydown",ev=>{ if(ev.key==="Enter")window.checkPwAndReset(); });
 
 function buildStatic(){
-  // manager row
   const mgr=document.getElementById("row-mgr");
   BOOTHS.forEach((b,i)=>{
     const c=document.createElement("div"); c.className="mgr-cell";
@@ -369,27 +327,23 @@ function buildStatic(){
     inp.value=b.manager; inp.oninput=()=>{BOOTHS[i].manager=inp.value;};
     c.appendChild(inp); mgr.appendChild(c);
   });
-  // name row
   const nr=document.getElementById("row-name");
   BOOTHS.forEach(b=>{
     const c=document.createElement("div"); c.className="name-cell";
     c.innerHTML=`<div class="booth-title">${b.name}</div><div class="booth-prize">(${fmtPrize(b.prize)})</div>`;
     nr.appendChild(c);
   });
-  // entry cells
   const er=document.getElementById("row-entry");
   BOOTHS.forEach((_,i)=>{
     const c=document.createElement("div"); c.className="entry-cell"; c.id=`ec-${i}`;
     er.appendChild(c);
   });
-  // manual label row
   const mlr=document.getElementById("manual-label-row");
   BOOTHS.forEach((b)=>{
     const c=document.createElement("div"); c.className="manual-label-cell";
     c.textContent=b.name;
     mlr.appendChild(c);
   });
-  // manual cells
   const mr=document.getElementById("row-manual");
   BOOTHS.forEach((_,i)=>{
     const c=document.createElement("div"); c.className="manual-cell"; c.id=`mc-${i}`;
@@ -409,13 +363,12 @@ function refreshEntry(bi){
     cell.appendChild(hdr);
   }
   entries[bi].forEach(e=>{
-    const item=document.createElement("div");
-    item.className="eitem"+(e.result==="dup"?" dup":"");
+    const item=document.createElement("div"); item.className="eitem";
     const asset=e.result==="success"?Math.round(BOOTHS[bi].prize*(e.rate/100)):0;
     const team=document.createElement("span"); team.className="eitem-team"; team.textContent=e.team+"조";
     const rate=document.createElement("span"); rate.className="eitem-rate"; rate.textContent=e.rate+"%";
     const res =document.createElement("span"); res.className="eitem-result";
-    res.textContent=e.result==="dup"?"중복":e.result==="success"?"성공":"실패";
+    res.textContent=e.result==="success"?"성공":"실패";
     const aw=document.createElement("div"); aw.className="eitem-asset-wrap";
     const av=document.createElement("span"); av.className="eitem-asset"; av.textContent=fmt(asset);
     const del=document.createElement("button"); del.className="eitem-del"; del.textContent="✕";
@@ -432,8 +385,9 @@ function refreshEntry(bi){
     const t=parseInt(inpT.value); if(!t||t<1||t>18){inpT.focus();return;}
     const rv=inpR.value.trim(); const r=rv===""?100:parseInt(rv);
     if(isNaN(r)||r<0||r>100){inpR.focus();return;}
-    const dup=entries[bi].some(e=>e.team===t);
-    saveEntry(bi,{id:genId(),team:t,rate:r,result:dup?"dup":r===0?"fail":"success"});
+    // ── 중복 체크 없음 ── 항상 success 또는 fail로 저장
+    const result = r===0 ? "fail" : "success";
+    saveEntry(bi,{id:genId(),team:t,rate:r,result});
     inpT.value=""; inpR.value=""; inpT.focus();
   }
   btn.onclick=submit;
@@ -518,7 +472,7 @@ window.renderAll=function(){
       <td class="td-team">${r.team}</td>
       <td style="color:${r.isManual?"var(--green-dark)":"var(--text3)"};font-weight:${r.isManual?600:400}">${bl}</td>
       <td class="td-rate">${r.rate!==null?r.rate+"%":"—"}</td>
-      <td style="color:var(--text3)">${r.result==="success"?"성공":r.result==="dup"?"중복":"실패"}</td>
+      <td style="color:var(--text3)">${r.result==="success"?"성공":"실패"}</td>
       <td class="${r.asset>0?"td-asset":"td-zero"}">${fmt(r.asset)}</td>
     </tr>`;
   }).join(""):`<tr><td colspan="5" class="no-data">기입된 데이터가 없습니다</td></tr>`;
