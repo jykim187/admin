@@ -242,7 +242,7 @@ const app = initializeApp(firebaseConfig);
 const db  = getDatabase(app);
 
 const BOOTHS = [
-  { name: "미국 옴니채널 구축",         prize: 50000, manager: "담당자 A" },
+  { name: "미국 옴니채널 구축",         prize: 40000, manager: "담당자 A" },
   { name: "올리브베러 론칭 및 확산",     prize: 10000, manager: "담당자 B" },
   { name: "글로벌 B2B 사업진출",         prize: 15000, manager: "담당자 C" },
   { name: "공격적 현지화 히트상품 육성", prize: 12000, manager: "담당자 D" }
@@ -252,9 +252,9 @@ const RESET_PW = "0907";
 function fmtPrize(n){ return n>=10000?(n/10000)+"조":(n/1000)+"천억"; }
 function fmt(n){
   if(!n||n===0) return "—";
-  if(n>=10000){ const v=n/10000; return (Number.isInteger(v)?v:v.toFixed(1))+"조"; }
-  if(n>=1000){  const v=n/1000;  return (Number.isInteger(v)?v:v.toFixed(1))+"천억"; }
-  return n.toLocaleString()+"억";
+  if(n>=10000){ const v=n/10000; return (Number.isInteger(v)?v:parseFloat(v.toFixed(4)))+"조"; }
+  if(n>=1000){  const v=n/1000;  return (Number.isInteger(v)?v:parseFloat(v.toFixed(4)))+"천억"; }
+  return (Number.isInteger(n)?n:parseFloat(n.toFixed(2)))+"억";
 }
 function genId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
 
@@ -364,7 +364,7 @@ function refreshEntry(bi){
   }
   entries[bi].forEach(e=>{
     const item=document.createElement("div"); item.className="eitem";
-    const asset=e.result==="success"?Math.round(BOOTHS[bi].prize*(e.rate/100)):0;
+    const asset=e.result==="success"?BOOTHS[bi].prize*(e.rate/100):0;
     const team=document.createElement("span"); team.className="eitem-team"; team.textContent=e.team+"조";
     const rate=document.createElement("span"); rate.className="eitem-rate"; rate.textContent=e.rate+"%";
     const res =document.createElement("span"); res.className="eitem-result";
@@ -433,7 +433,7 @@ function getRaw(){
   const rows=[];
   BOOTHS.forEach((b,i)=>{
     entries[i].forEach(e=>{
-      const asset=e.result==="success"?Math.round(b.prize*(e.rate/100)):0;
+      const asset=e.result==="success"?b.prize*(e.rate/100):0;
       rows.push({ team:e.team+"조", teamNum:e.team, booth:b.name, boothIdx:i, rate:e.rate, result:e.result, isManual:false, asset });
     });
     manuals[i].forEach(e=>{
